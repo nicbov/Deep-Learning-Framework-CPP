@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/main.cpp.o -c /Users/nicbov/cppgrad/main.cpp",
+  "file": "/Users/nicbov/cppgrad/main.cpp",
+  "output": "CMakeFiles/cppgrad.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/tensor.cpp.o -c /Users/nicbov/cppgrad/src/tensor.cpp",
+  "file": "/Users/nicbov/cppgrad/src/tensor.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/tensor.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/ops/add.cpp.o -c /Users/nicbov/cppgrad/src/ops/add.cpp",
+  "file": "/Users/nicbov/cppgrad/src/ops/add.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/ops/add.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/ops/mul.cpp.o -c /Users/nicbov/cppgrad/src/ops/mul.cpp",
+  "file": "/Users/nicbov/cppgrad/src/ops/mul.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/ops/mul.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/ops/matmul.cpp.o -c /Users/nicbov/cppgrad/src/ops/matmul.cpp",
+  "file": "/Users/nicbov/cppgrad/src/ops/matmul.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/ops/matmul.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/ops/mse.cpp.o -c /Users/nicbov/cppgrad/src/ops/mse.cpp",
+  "file": "/Users/nicbov/cppgrad/src/ops/mse.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/ops/mse.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/ops/relu.cpp.o -c /Users/nicbov/cppgrad/src/ops/relu.cpp",
+  "file": "/Users/nicbov/cppgrad/src/ops/relu.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/ops/relu.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/linear.cpp.o -c /Users/nicbov/cppgrad/src/linear.cpp",
+  "file": "/Users/nicbov/cppgrad/src/linear.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/linear.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/optimizer.cpp.o -c /Users/nicbov/cppgrad/src/optimizer.cpp",
+  "file": "/Users/nicbov/cppgrad/src/optimizer.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/optimizer.cpp.o"
+}
+]
