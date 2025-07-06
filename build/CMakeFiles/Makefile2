@@ -85,12 +85,12 @@ clean: CMakeFiles/cppgrad.dir/clean
 CMakeFiles/cppgrad.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target cppgrad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target cppgrad"
 .PHONY : CMakeFiles/cppgrad.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cppgrad.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nicbov/cppgrad/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nicbov/cppgrad/build/CMakeFiles 15
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cppgrad.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nicbov/cppgrad/build/CMakeFiles 0
 .PHONY : CMakeFiles/cppgrad.dir/rule
@@ -102,7 +102,7 @@ cppgrad: CMakeFiles/cppgrad.dir/rule
 # codegen rule for target.
 CMakeFiles/cppgrad.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Finished codegen for target cppgrad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Finished codegen for target cppgrad"
 .PHONY : CMakeFiles/cppgrad.dir/codegen
 
 # clean rule for target.

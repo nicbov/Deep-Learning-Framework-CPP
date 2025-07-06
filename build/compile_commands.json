@@ -52,5 +52,35 @@
   "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/optimizer.cpp.o -c /Users/nicbov/cppgrad/src/optimizer.cpp",
   "file": "/Users/nicbov/cppgrad/src/optimizer.cpp",
   "output": "CMakeFiles/cppgrad.dir/src/optimizer.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o -c /Users/nicbov/cppgrad/src/ops/sigmoid.cpp",
+  "file": "/Users/nicbov/cppgrad/src/ops/sigmoid.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o -c /Users/nicbov/cppgrad/src/ops/tanh.cpp",
+  "file": "/Users/nicbov/cppgrad/src/ops/tanh.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/module.cpp.o -c /Users/nicbov/cppgrad/src/module.cpp",
+  "file": "/Users/nicbov/cppgrad/src/module.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/module.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/sequential.cpp.o -c /Users/nicbov/cppgrad/src/sequential.cpp",
+  "file": "/Users/nicbov/cppgrad/src/sequential.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/sequential.cpp.o"
+},
+{
+  "directory": "/Users/nicbov/cppgrad/build",
+  "command": "/usr/bin/c++  -I/Users/nicbov/cppgrad/include -std=gnu++17 -arch arm64 -o CMakeFiles/cppgrad.dir/src/relu_module.cpp.o -c /Users/nicbov/cppgrad/src/relu_module.cpp",
+  "file": "/Users/nicbov/cppgrad/src/relu_module.cpp",
+  "output": "CMakeFiles/cppgrad.dir/src/relu_module.cpp.o"
 }
 ]

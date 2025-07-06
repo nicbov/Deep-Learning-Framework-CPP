@@ -957,7 +957,9 @@ CMakeFiles/cppgrad.dir/main.cpp.o: /Users/nicbov/cppgrad/main.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Users/nicbov/cppgrad/include/linear.hpp \
-  /Users/nicbov/cppgrad/include/relu.hpp \
-  /Users/nicbov/cppgrad/include/op.hpp \
+  /Users/nicbov/cppgrad/include/module.hpp \
+  /Users/nicbov/cppgrad/include/relu_module.hpp \
   /Users/nicbov/cppgrad/include/mse.hpp \
-  /Users/nicbov/cppgrad/include/optimizer.hpp
+  /Users/nicbov/cppgrad/include/op.hpp \
+  /Users/nicbov/cppgrad/include/optimizer.hpp \
+  /Users/nicbov/cppgrad/include/sequential.hpp

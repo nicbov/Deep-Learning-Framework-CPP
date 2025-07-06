@@ -1,24 +1,26 @@
 #include "relu.hpp"
+#include <algorithm> // for std::max
 
 ReLUOp::ReLUOp(std::shared_ptr<Tensor> input) {
-    inputs.push_back(input);
+    inputs.push_back(input); // store as weak_ptr automatically via vector type
 }
 
 void ReLUOp::backward(Tensor& grad_output) {
-    auto input = inputs[0];
-    if (!input->requires_grad) return;
+    if (auto input = inputs[0].lock()) { // safely get shared_ptr from weak_ptr
+        if (!input->requires_grad) return;
 
-    if (input->grad.empty()) {
-        input->grad.resize(input->data.size(), 0.0f);
-    }
+        if (input->grad.empty()) {
+            input->grad.resize(input->data.size(), 0.0f);
+        }
 
-    for (size_t i = 0; i < input->data.size(); ++i) {
-        float grad = input->data[i] > 0.0f ? 1.0f : 0.0f;
-        input->grad[i] += grad * grad_output.grad[i];
-    }
+        for (size_t i = 0; i < input->data.size(); ++i) {
+            float grad = input->data[i] > 0.0f ? 1.0f : 0.0f;
+            input->grad[i] += grad * grad_output.grad[i];
+        }
 
-    if (input->creator) {
-        input->backward();
+        if (input->creator) {
+            input->backward();
+        }
     }
 }
 

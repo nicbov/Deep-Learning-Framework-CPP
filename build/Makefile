@@ -177,6 +177,30 @@ src/linear.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/linear.cpp.s
 .PHONY : src/linear.cpp.s
 
+src/module.o: src/module.cpp.o
+.PHONY : src/module.o
+
+# target to build an object file
+src/module.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/module.cpp.o
+.PHONY : src/module.cpp.o
+
+src/module.i: src/module.cpp.i
+.PHONY : src/module.i
+
+# target to preprocess a source file
+src/module.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/module.cpp.i
+.PHONY : src/module.cpp.i
+
+src/module.s: src/module.cpp.s
+.PHONY : src/module.s
+
+# target to generate assembly for a file
+src/module.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/module.cpp.s
+.PHONY : src/module.cpp.s
+
 src/ops/add.o: src/ops/add.cpp.o
 .PHONY : src/ops/add.o
 
@@ -297,6 +321,54 @@ src/ops/relu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/ops/relu.cpp.s
 .PHONY : src/ops/relu.cpp.s
 
+src/ops/sigmoid.o: src/ops/sigmoid.cpp.o
+.PHONY : src/ops/sigmoid.o
+
+# target to build an object file
+src/ops/sigmoid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o
+.PHONY : src/ops/sigmoid.cpp.o
+
+src/ops/sigmoid.i: src/ops/sigmoid.cpp.i
+.PHONY : src/ops/sigmoid.i
+
+# target to preprocess a source file
+src/ops/sigmoid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.i
+.PHONY : src/ops/sigmoid.cpp.i
+
+src/ops/sigmoid.s: src/ops/sigmoid.cpp.s
+.PHONY : src/ops/sigmoid.s
+
+# target to generate assembly for a file
+src/ops/sigmoid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.s
+.PHONY : src/ops/sigmoid.cpp.s
+
+src/ops/tanh.o: src/ops/tanh.cpp.o
+.PHONY : src/ops/tanh.o
+
+# target to build an object file
+src/ops/tanh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o
+.PHONY : src/ops/tanh.cpp.o
+
+src/ops/tanh.i: src/ops/tanh.cpp.i
+.PHONY : src/ops/tanh.i
+
+# target to preprocess a source file
+src/ops/tanh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.i
+.PHONY : src/ops/tanh.cpp.i
+
+src/ops/tanh.s: src/ops/tanh.cpp.s
+.PHONY : src/ops/tanh.s
+
+# target to generate assembly for a file
+src/ops/tanh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.s
+.PHONY : src/ops/tanh.cpp.s
+
 src/optimizer.o: src/optimizer.cpp.o
 .PHONY : src/optimizer.o
 
@@ -320,6 +392,54 @@ src/optimizer.s: src/optimizer.cpp.s
 src/optimizer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/optimizer.cpp.s
 .PHONY : src/optimizer.cpp.s
+
+src/relu_module.o: src/relu_module.cpp.o
+.PHONY : src/relu_module.o
+
+# target to build an object file
+src/relu_module.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/relu_module.cpp.o
+.PHONY : src/relu_module.cpp.o
+
+src/relu_module.i: src/relu_module.cpp.i
+.PHONY : src/relu_module.i
+
+# target to preprocess a source file
+src/relu_module.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/relu_module.cpp.i
+.PHONY : src/relu_module.cpp.i
+
+src/relu_module.s: src/relu_module.cpp.s
+.PHONY : src/relu_module.s
+
+# target to generate assembly for a file
+src/relu_module.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/relu_module.cpp.s
+.PHONY : src/relu_module.cpp.s
+
+src/sequential.o: src/sequential.cpp.o
+.PHONY : src/sequential.o
+
+# target to build an object file
+src/sequential.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/sequential.cpp.o
+.PHONY : src/sequential.cpp.o
+
+src/sequential.i: src/sequential.cpp.i
+.PHONY : src/sequential.i
+
+# target to preprocess a source file
+src/sequential.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/sequential.cpp.i
+.PHONY : src/sequential.cpp.i
+
+src/sequential.s: src/sequential.cpp.s
+.PHONY : src/sequential.s
+
+# target to generate assembly for a file
+src/sequential.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cppgrad.dir/build.make CMakeFiles/cppgrad.dir/src/sequential.cpp.s
+.PHONY : src/sequential.cpp.s
 
 src/tensor.o: src/tensor.cpp.o
 .PHONY : src/tensor.o
@@ -360,6 +480,9 @@ help:
 	@echo "... src/linear.o"
 	@echo "... src/linear.i"
 	@echo "... src/linear.s"
+	@echo "... src/module.o"
+	@echo "... src/module.i"
+	@echo "... src/module.s"
 	@echo "... src/ops/add.o"
 	@echo "... src/ops/add.i"
 	@echo "... src/ops/add.s"
@@ -375,9 +498,21 @@ help:
 	@echo "... src/ops/relu.o"
 	@echo "... src/ops/relu.i"
 	@echo "... src/ops/relu.s"
+	@echo "... src/ops/sigmoid.o"
+	@echo "... src/ops/sigmoid.i"
+	@echo "... src/ops/sigmoid.s"
+	@echo "... src/ops/tanh.o"
+	@echo "... src/ops/tanh.i"
+	@echo "... src/ops/tanh.s"
 	@echo "... src/optimizer.o"
 	@echo "... src/optimizer.i"
 	@echo "... src/optimizer.s"
+	@echo "... src/relu_module.o"
+	@echo "... src/relu_module.i"
+	@echo "... src/relu_module.s"
+	@echo "... src/sequential.o"
+	@echo "... src/sequential.i"
+	@echo "... src/sequential.s"
 	@echo "... src/tensor.o"
 	@echo "... src/tensor.i"
 	@echo "... src/tensor.s"

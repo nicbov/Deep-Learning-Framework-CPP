@@ -198,6 +198,76 @@ CMakeFiles/cppgrad.dir/src/optimizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cppgrad.dir/src/optimizer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nicbov/cppgrad/src/optimizer.cpp -o CMakeFiles/cppgrad.dir/src/optimizer.cpp.s
 
+CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o: CMakeFiles/cppgrad.dir/flags.make
+CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o: /Users/nicbov/cppgrad/src/ops/sigmoid.cpp
+CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o: CMakeFiles/cppgrad.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o -MF CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o.d -o CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o -c /Users/nicbov/cppgrad/src/ops/sigmoid.cpp
+
+CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nicbov/cppgrad/src/ops/sigmoid.cpp > CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.i
+
+CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nicbov/cppgrad/src/ops/sigmoid.cpp -o CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.s
+
+CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o: CMakeFiles/cppgrad.dir/flags.make
+CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o: /Users/nicbov/cppgrad/src/ops/tanh.cpp
+CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o: CMakeFiles/cppgrad.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o -MF CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o.d -o CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o -c /Users/nicbov/cppgrad/src/ops/tanh.cpp
+
+CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nicbov/cppgrad/src/ops/tanh.cpp > CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.i
+
+CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nicbov/cppgrad/src/ops/tanh.cpp -o CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.s
+
+CMakeFiles/cppgrad.dir/src/module.cpp.o: CMakeFiles/cppgrad.dir/flags.make
+CMakeFiles/cppgrad.dir/src/module.cpp.o: /Users/nicbov/cppgrad/src/module.cpp
+CMakeFiles/cppgrad.dir/src/module.cpp.o: CMakeFiles/cppgrad.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/cppgrad.dir/src/module.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cppgrad.dir/src/module.cpp.o -MF CMakeFiles/cppgrad.dir/src/module.cpp.o.d -o CMakeFiles/cppgrad.dir/src/module.cpp.o -c /Users/nicbov/cppgrad/src/module.cpp
+
+CMakeFiles/cppgrad.dir/src/module.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cppgrad.dir/src/module.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nicbov/cppgrad/src/module.cpp > CMakeFiles/cppgrad.dir/src/module.cpp.i
+
+CMakeFiles/cppgrad.dir/src/module.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cppgrad.dir/src/module.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nicbov/cppgrad/src/module.cpp -o CMakeFiles/cppgrad.dir/src/module.cpp.s
+
+CMakeFiles/cppgrad.dir/src/sequential.cpp.o: CMakeFiles/cppgrad.dir/flags.make
+CMakeFiles/cppgrad.dir/src/sequential.cpp.o: /Users/nicbov/cppgrad/src/sequential.cpp
+CMakeFiles/cppgrad.dir/src/sequential.cpp.o: CMakeFiles/cppgrad.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/cppgrad.dir/src/sequential.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cppgrad.dir/src/sequential.cpp.o -MF CMakeFiles/cppgrad.dir/src/sequential.cpp.o.d -o CMakeFiles/cppgrad.dir/src/sequential.cpp.o -c /Users/nicbov/cppgrad/src/sequential.cpp
+
+CMakeFiles/cppgrad.dir/src/sequential.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cppgrad.dir/src/sequential.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nicbov/cppgrad/src/sequential.cpp > CMakeFiles/cppgrad.dir/src/sequential.cpp.i
+
+CMakeFiles/cppgrad.dir/src/sequential.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cppgrad.dir/src/sequential.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nicbov/cppgrad/src/sequential.cpp -o CMakeFiles/cppgrad.dir/src/sequential.cpp.s
+
+CMakeFiles/cppgrad.dir/src/relu_module.cpp.o: CMakeFiles/cppgrad.dir/flags.make
+CMakeFiles/cppgrad.dir/src/relu_module.cpp.o: /Users/nicbov/cppgrad/src/relu_module.cpp
+CMakeFiles/cppgrad.dir/src/relu_module.cpp.o: CMakeFiles/cppgrad.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/cppgrad.dir/src/relu_module.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cppgrad.dir/src/relu_module.cpp.o -MF CMakeFiles/cppgrad.dir/src/relu_module.cpp.o.d -o CMakeFiles/cppgrad.dir/src/relu_module.cpp.o -c /Users/nicbov/cppgrad/src/relu_module.cpp
+
+CMakeFiles/cppgrad.dir/src/relu_module.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cppgrad.dir/src/relu_module.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nicbov/cppgrad/src/relu_module.cpp > CMakeFiles/cppgrad.dir/src/relu_module.cpp.i
+
+CMakeFiles/cppgrad.dir/src/relu_module.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cppgrad.dir/src/relu_module.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nicbov/cppgrad/src/relu_module.cpp -o CMakeFiles/cppgrad.dir/src/relu_module.cpp.s
+
 # Object files for target cppgrad
 cppgrad_OBJECTS = \
 "CMakeFiles/cppgrad.dir/main.cpp.o" \
@@ -208,7 +278,12 @@ cppgrad_OBJECTS = \
 "CMakeFiles/cppgrad.dir/src/ops/mse.cpp.o" \
 "CMakeFiles/cppgrad.dir/src/ops/relu.cpp.o" \
 "CMakeFiles/cppgrad.dir/src/linear.cpp.o" \
-"CMakeFiles/cppgrad.dir/src/optimizer.cpp.o"
+"CMakeFiles/cppgrad.dir/src/optimizer.cpp.o" \
+"CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o" \
+"CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o" \
+"CMakeFiles/cppgrad.dir/src/module.cpp.o" \
+"CMakeFiles/cppgrad.dir/src/sequential.cpp.o" \
+"CMakeFiles/cppgrad.dir/src/relu_module.cpp.o"
 
 # External object files for target cppgrad
 cppgrad_EXTERNAL_OBJECTS =
@@ -222,9 +297,14 @@ cppgrad: CMakeFiles/cppgrad.dir/src/ops/mse.cpp.o
 cppgrad: CMakeFiles/cppgrad.dir/src/ops/relu.cpp.o
 cppgrad: CMakeFiles/cppgrad.dir/src/linear.cpp.o
 cppgrad: CMakeFiles/cppgrad.dir/src/optimizer.cpp.o
+cppgrad: CMakeFiles/cppgrad.dir/src/ops/sigmoid.cpp.o
+cppgrad: CMakeFiles/cppgrad.dir/src/ops/tanh.cpp.o
+cppgrad: CMakeFiles/cppgrad.dir/src/module.cpp.o
+cppgrad: CMakeFiles/cppgrad.dir/src/sequential.cpp.o
+cppgrad: CMakeFiles/cppgrad.dir/src/relu_module.cpp.o
 cppgrad: CMakeFiles/cppgrad.dir/build.make
 cppgrad: CMakeFiles/cppgrad.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable cppgrad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/nicbov/cppgrad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable cppgrad"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cppgrad.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

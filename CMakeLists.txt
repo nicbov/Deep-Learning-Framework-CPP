@@ -16,4 +16,9 @@ add_executable(cppgrad
     src/ops/relu.cpp
     src/linear.cpp
     src/optimizer.cpp
+    src/ops/sigmoid.cpp
+    src/ops/tanh.cpp
+    src/module.cpp 
+    src/sequential.cpp
+    src/relu_module.cpp
 )
