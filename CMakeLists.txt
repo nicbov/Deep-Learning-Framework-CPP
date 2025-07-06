@@ -21,4 +21,5 @@ add_executable(cppgrad
     src/module.cpp 
     src/sequential.cpp
     src/relu_module.cpp
+    src/adam.cpp 
 )

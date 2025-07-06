@@ -7,6 +7,8 @@
 #include <iostream>
 #include <vector>
 #include <cmath> // for std::isnan, std::isinf
+#include "adam.hpp"
+
 
 int main() {
     std::cout << "=== Initializing data ===" << std::endl;
@@ -25,7 +27,7 @@ int main() {
     model->add_module(std::make_shared<ReLU>());
     model->add_module(std::make_shared<Linear>(4, 2));
 
-    SGD optimizer(0.01f);
+    Adam optimizer(0.001f);
 
     std::cout << "=== Starting training ===" << std::endl;
 
