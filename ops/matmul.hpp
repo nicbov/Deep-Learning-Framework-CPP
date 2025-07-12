@@ -1,7 +1,7 @@
 #pragma once
 
-#include "tensor.hpp"
-#include "op.hpp"
+#include "../tensor.hpp"
+#include "../op.hpp"
 
 class MatMulOp : public Op {
 public:

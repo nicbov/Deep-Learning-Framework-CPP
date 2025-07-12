@@ -1,6 +1,6 @@
 #pragma once
 
-#include "tensor.hpp"
+#include "../tensor.hpp"
 #include <vector>
 #include <memory>
 

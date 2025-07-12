@@ -14,7 +14,8 @@ public:
     bool requires_grad = false;
     std::vector<float> grad;
 
-    std::shared_ptr<Op> creator = nullptr;
+    std::weak_ptr<Op> creator;
+
 
     Tensor(std::vector<int> shape, bool requires_grad = false);
 
@@ -22,4 +23,7 @@ public:
     void zero_grad();
     void backward();
     void print_data() const;
+
+    // New method declaration
+    std::shared_ptr<Tensor> detach() const;
 };

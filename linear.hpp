@@ -1,7 +1,8 @@
 #pragma once
 
-#include "module.hpp"
+#include "model/module.hpp"
 #include <memory>
+#include <vector>
 
 class Linear : public Module {
 public:
@@ -15,4 +16,7 @@ public:
     std::vector<std::shared_ptr<Tensor>> parameters() const override;
 
     std::string name() const override { return "Linear"; }
+
+    std::vector<std::shared_ptr<Op>> ops; // store created ops
+
 };

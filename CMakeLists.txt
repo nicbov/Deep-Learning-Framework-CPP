@@ -8,18 +8,14 @@ include_directories(include)
 
 add_executable(cppgrad
     main.cpp
-    src/tensor.cpp
-    src/ops/add.cpp
-    src/ops/mul.cpp 
-    src/ops/matmul.cpp
-    src/ops/mse.cpp
-    src/ops/relu.cpp
-    src/linear.cpp
-    src/optimizer.cpp
-    src/ops/sigmoid.cpp
-    src/ops/tanh.cpp
-    src/module.cpp 
-    src/sequential.cpp
-    src/relu_module.cpp
-    src/adam.cpp 
+    tensor.cpp
+    ops/add.cpp
+    ops/matmul.cpp
+    ops/mse.cpp
+    linear.cpp
+    model/module.cpp 
+    model/sequential.cpp
+    optimizer/adam.cpp 
+    data/csv_loader.cpp
+    ops/linear_op.cpp
 )

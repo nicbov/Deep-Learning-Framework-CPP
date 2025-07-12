@@ -4,7 +4,7 @@
 #include <memory>
 #include <string>
 
-#include "tensor.hpp"
+#include "../tensor.hpp"
 
 class Module {
 public:
