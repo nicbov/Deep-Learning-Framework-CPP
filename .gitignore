@@ -7,7 +7,5 @@
 *.o
 *.class
 
-# Ignore finance dataset
-finance_dataset.csv
 
 
