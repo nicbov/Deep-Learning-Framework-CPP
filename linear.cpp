@@ -2,7 +2,12 @@
 #include "ops/matmul.hpp"
 #include "ops/add.hpp"
 #include "ops/linear_op.hpp"  
+#include "../graph.hpp"
+
 #include <random>
+#include <iostream>
+
+extern Graph global_graph;
 
 static float rand_weight() {
     static std::mt19937 gen(42);
@@ -16,6 +21,9 @@ Linear::Linear(int in_features, int out_features) {
 
     for (auto& w : weight->data) w = rand_weight();
     for (auto& b : bias->data) b = rand_weight();
+
+    global_graph.add_tensor(weight);
+    global_graph.add_tensor(bias);
 
     std::cout << "[Linear ctor] weight shape: ";
     for (auto d : weight->shape) std::cout << d << " ";
@@ -43,13 +51,14 @@ std::shared_ptr<Tensor> Linear::forward(std::shared_ptr<Tensor> input) {
 
     if (result->requires_grad) {
         auto op = std::make_shared<LinearOp>(input, weight, bias);
-        result->creator = op;
-        ops.push_back(op);  // keep op alive here
+        result->set_creator(op);
+        ops.push_back(op);  // keep op alive
+        global_graph.add_op(op);
     }
 
+    global_graph.add_tensor(result);
     return result;
 }
-
 
 std::vector<std::shared_ptr<Tensor>> Linear::parameters() const {
     return {weight, bias};

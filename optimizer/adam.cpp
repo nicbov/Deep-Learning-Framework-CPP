@@ -28,6 +28,17 @@ void Adam::step(const std::vector<std::shared_ptr<Tensor>>& params) {
         initialize_state(params);
     }
     ++t; // increment timestep
+    
+    // Gradient clipping to prevent explosion
+    float max_grad_norm = 1.0f;  // Clip gradients to this max norm
+    for (auto& param : params) {
+        if (!param->requires_grad || param->grad.empty()) continue;
+        for (auto& grad : param->grad) {
+            if (std::abs(grad) > max_grad_norm) {
+                grad = std::copysign(max_grad_norm, grad);
+            }
+        }
+    }
     std::cout << "[Adam] Step " << t << " updating parameters.\n";
 
     for (size_t i = 0; i < params.size(); ++i) {

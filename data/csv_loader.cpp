@@ -9,6 +9,12 @@ std::vector<std::vector<double>> load_csv(const std::string& filename) {
     std::vector<std::vector<double>> data;
     std::string line;
 
+    if (!file.is_open()) {
+        std::cerr << "Error: Could not open file: " << filename << std::endl;
+        return data;
+    }
+
+    std::cout << "Successfully opened file: " << filename << std::endl;
     std::getline(file, line); // Skip header
 
     int line_num = 1; // for error messages
@@ -45,6 +51,7 @@ std::vector<std::vector<double>> load_csv(const std::string& filename) {
         }
     }
 
+    std::cout << "Loaded " << data.size() << " rows from CSV" << std::endl;
     return data;
 }
 

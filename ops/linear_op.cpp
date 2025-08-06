@@ -1,13 +1,20 @@
+// Author: Nico Boving
+// linear operation
 #include "linear_op.hpp"
 #include <iostream>
+#include <algorithm>  
+#include "../graph.hpp"
+#include <memory>
+
+extern Graph global_graph;
 
 LinearOp::LinearOp(const std::shared_ptr<Tensor>& input_,
-    const std::shared_ptr<Tensor>& weight_,
-    const std::shared_ptr<Tensor>& bias_) :
-input(input_), weight(weight_), bias(bias_) {
-inputs.push_back(input);
-inputs.push_back(weight);
-if (bias) inputs.push_back(bias);
+                   const std::shared_ptr<Tensor>& weight_,
+                   const std::shared_ptr<Tensor>& bias_)
+    : input(input_), weight(weight_), bias(bias_) {
+    inputs.push_back(input);
+    inputs.push_back(weight);
+    if (bias) inputs.push_back(bias);
 }
 
 void LinearOp::backward(Tensor& grad_output) {
@@ -23,30 +30,39 @@ void LinearOp::backward(Tensor& grad_output) {
         return;
     }
 
-    if (input->requires_grad) {
-        if (input->grad.size() != input->data.size()) input->grad.assign(input->data.size(), 0.0f);
-        else std::fill(input->grad.begin(), input->grad.end(), 0.0f);
+    // Cast away const to mutate grad buffers
+    auto input_mut = std::const_pointer_cast<Tensor>(input);
+    auto weight_mut = std::const_pointer_cast<Tensor>(weight);
+    std::shared_ptr<Tensor> bias_mut = bias ? std::const_pointer_cast<Tensor>(bias) : nullptr;
+
+    if (input_mut->requires_grad) {
+        if (input_mut->grad.size() != input_mut->data.size())
+            input_mut->grad.assign(input_mut->data.size(), 0.0f);
+        else
+            std::fill(input_mut->grad.begin(), input_mut->grad.end(), 0.0f);
 
         for (int b = 0; b < batch; ++b) {
             for (int i = 0; i < in_dim; ++i) {
                 float grad_val = 0.0f;
                 for (int j = 0; j < out_dim; ++j) {
-                    grad_val += grad_output.grad[b * out_dim + j] * weight->data[i * out_dim + j];
+                    grad_val += grad_output.grad[b * out_dim + j] * weight_mut->data[i * out_dim + j];
                 }
-                input->grad[b * in_dim + i] = grad_val;  // No +=, overwrite after zeroing
+                input_mut->grad[b * in_dim + i] = grad_val;  // overwrite after zeroing
             }
         }
 
         std::cout << "[LinearOp] input grad sample: ";
-        for (int i = 0; i < std::min(5, (int)input->grad.size()); ++i) {
-            std::cout << input->grad[i] << " ";
+        for (int i = 0; i < std::min(5, (int)input_mut->grad.size()); ++i) {
+            std::cout << input_mut->grad[i] << " ";
         }
         std::cout << std::endl;
     }
 
-    if (weight->requires_grad) {
-        if (weight->grad.size() != weight->data.size()) weight->grad.assign(weight->data.size(), 0.0f);
-        else std::fill(weight->grad.begin(), weight->grad.end(), 0.0f);
+    if (weight_mut->requires_grad) {
+        if (weight_mut->grad.size() != weight_mut->data.size())
+            weight_mut->grad.assign(weight_mut->data.size(), 0.0f);
+        else
+            std::fill(weight_mut->grad.begin(), weight_mut->grad.end(), 0.0f);
 
         for (int i = 0; i < in_dim; ++i) {
             for (int j = 0; j < out_dim; ++j) {
@@ -54,40 +70,39 @@ void LinearOp::backward(Tensor& grad_output) {
                 for (int b = 0; b < batch; ++b) {
                     grad_val += input->data[b * in_dim + i] * grad_output.grad[b * out_dim + j];
                 }
-                weight->grad[i * out_dim + j] = grad_val; // overwrite after zeroing
+                weight_mut->grad[i * out_dim + j] = grad_val;  // overwrite after zeroing
             }
         }
 
         std::cout << "[LinearOp] weight grad sample: ";
-        for (int i = 0; i < std::min(5, (int)weight->grad.size()); ++i) {
-            std::cout << weight->grad[i] << " ";
+        for (int i = 0; i < std::min(5, (int)weight_mut->grad.size()); ++i) {
+            std::cout << weight_mut->grad[i] << " ";
         }
         std::cout << std::endl;
     }
 
-    if (bias && bias->requires_grad) {
-        if (bias->grad.size() != bias->data.size()) bias->grad.assign(bias->data.size(), 0.0f);
-        else std::fill(bias->grad.begin(), bias->grad.end(), 0.0f);
+    if (bias_mut && bias_mut->requires_grad) {
+        if (bias_mut->grad.size() != bias_mut->data.size())
+            bias_mut->grad.assign(bias_mut->data.size(), 0.0f);
+        else
+            std::fill(bias_mut->grad.begin(), bias_mut->grad.end(), 0.0f);
 
         for (int j = 0; j < out_dim; ++j) {
             float grad_val = 0.0f;
             for (int b = 0; b < batch; ++b) {
                 grad_val += grad_output.grad[b * out_dim + j];
             }
-            bias->grad[j] = grad_val; // overwrite after zeroing
+            bias_mut->grad[j] = grad_val;  // overwrite after zeroing
         }
 
         std::cout << "[LinearOp] bias grad sample: ";
-        for (int i = 0; i < std::min(5, (int)bias->grad.size()); ++i) {
-            std::cout << bias->grad[i] << " ";
+        for (int i = 0; i < std::min(5, (int)bias_mut->grad.size()); ++i) {
+            std::cout << bias_mut->grad[i] << " ";
         }
         std::cout << std::endl;
     }
 
     if (auto creator = input->creator.lock()) {
-        std::cout << "[LinearOp] calling input creator backward\n";
         creator->backward(*input);
-    } else {
-        std::cout << "[LinearOp] input creator not found or expired, backward ends here\n";
     }
 }

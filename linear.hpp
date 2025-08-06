@@ -1,6 +1,6 @@
 #pragma once
 
-#include "model/module.hpp"
+#include "src/module.hpp"
 #include <memory>
 #include <vector>
 

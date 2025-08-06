@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../tensor.hpp"
 #include "../op.hpp"
 

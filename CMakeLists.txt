@@ -13,9 +13,17 @@ add_executable(cppgrad
     ops/matmul.cpp
     ops/mse.cpp
     linear.cpp
-    model/module.cpp 
+    src/module.cpp 
     model/sequential.cpp
     optimizer/adam.cpp 
     data/csv_loader.cpp
     ops/linear_op.cpp
+    ops/mul.hpp
+    ops/sub.hpp
+    ops/mean.hpp
+    src/module.hpp
+    ops/div.cpp
+    ops/pow.cpp
+    tensor_ops.hpp
+    graph.hpp
 )
