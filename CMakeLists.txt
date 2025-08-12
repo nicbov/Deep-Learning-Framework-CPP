@@ -13,6 +13,7 @@ add_executable(cppgrad
     ops/matmul.cpp
     ops/mse.cpp
     linear.cpp
+    relu.cpp
     src/module.cpp 
     model/sequential.cpp
     optimizer/adam.cpp 

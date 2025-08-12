@@ -14,47 +14,33 @@ public:
     }
 
     void backward(Tensor& grad_output) override {
-        std::cout << "[MeanOp::backward] Called\n";
-
         auto input_const = inputs[0].lock();
         if (!input_const) {
-            std::cout << "[MeanOp::backward] input expired\n";
             return;
         }
 
         if (!input_const->requires_grad) {
-            std::cout << "[MeanOp::backward] input does not require grad\n";
             return;
         }
 
         auto input = std::const_pointer_cast<Tensor>(input_const);
 
-        std::cout << "[MeanOp::backward] grad_output.grad.size() = " << grad_output.grad.size() << "\n";
-        if (!grad_output.grad.empty()) {
-            std::cout << "[MeanOp::backward] grad_output.grad[0] = " << grad_output.grad[0] << "\n";
+        if (input->requires_grad) {
+            if (input->grad.empty()) input->grad.resize(input->data.size(), 0.0f);
+            for (size_t i = 0; i < input->data.size(); ++i) {
+                // For MSE loss, we want to scale the gradient properly
+                // The factor of 2 from MSE derivative and 1/N from mean
+                float grad_val = grad_output.grad[0] * 2.0f / input->data.size();
+                input->grad[i] += grad_val;
+            }
         }
 
-        std::cout << "[MeanOp::backward] input data size = " << input->data.size() << ", count = " << count << "\n";
-
-        if (input->grad.empty()) {
-            input->grad.resize(input->data.size(), 0.0f);
-            std::cout << "[MeanOp::backward] grad buffer initialized for input\n";
-        }
-
-        float grad_val = grad_output.grad[0] / count;
-        std::cout << "[MeanOp::backward] grad_val = " << grad_val << "\n";
-
-        for (size_t i = 0; i < input->grad.size(); ++i) {
-            input->grad[i] += grad_val;
-        }
-        std::cout << "[MeanOp::backward] input->grad updated\n";
-
-        if (auto c = input->creator.lock()) {
-            std::cout << "[MeanOp::backward] Recursing into creator\n";
-            c->backward(*input);
-        } else {
-            std::cout << "[MeanOp::backward] No creator to recurse into\n";
+        // CRITICAL FIX: Propagate gradients to input tensor's creator
+        // But avoid infinite loops by checking if the creator is different
+        auto input_creator = input->creator.lock();
+        if (input_creator && input_creator.get() != this) {
+            // Only propagate if the creator is different from this operation
+            input_creator->backward(*input);
         }
     }
-
 };

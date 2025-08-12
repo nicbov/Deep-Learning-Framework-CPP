@@ -32,9 +32,11 @@ void MatMulOp::backward(Tensor& grad_output) {
         if (a->grad.empty()) a->grad.resize(a->data.size(), 0.0f);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < k; ++j) {
+                float grad_val = 0.0f;
                 for (int l = 0; l < n; ++l) {
-                    a->grad[i * k + j] += grad_output.grad[i * n + l] * b->data[j * n + l];
+                    grad_val += grad_output.grad[i * n + l] * b->data[j * n + l];
                 }
+                a->grad[i * k + j] += grad_val; // Changed from = to += for gradient accumulation
             }
         }
     }
@@ -43,19 +45,25 @@ void MatMulOp::backward(Tensor& grad_output) {
         if (b->grad.empty()) b->grad.resize(b->data.size(), 0.0f);
         for (int i = 0; i < k; ++i) {
             for (int j = 0; j < n; ++j) {
+                float grad_val = 0.0f;
                 for (int l = 0; l < m; ++l) {
-                    b->grad[i * n + j] += a->data[l * k + i] * grad_output.grad[l * n + j];
+                    grad_val += a->data[l * k + i] * grad_output.grad[l * n + j];
                 }
+                b->grad[i * n + j] += grad_val; // Changed from = to += for gradient accumulation
             }
         }
     }
 
-    // Call backward on creators if they exist
+    // CRITICAL FIX: Propagate gradients to input tensors' creators
+    // But avoid infinite loops by checking if the creators are different
     auto a_creator = a->creator.lock();
-    if (a_creator) a_creator->backward(*a);
-
+    if (a_creator && a_creator.get() != this) {
+        a_creator->backward(*a);
+    }
     auto b_creator = b->creator.lock();
-    if (b_creator) b_creator->backward(*b);
+    if (b_creator && b_creator.get() != this) {
+        b_creator->backward(*b);
+    }
 }
 
 std::shared_ptr<Tensor> matmul(std::shared_ptr<Tensor> a, std::shared_ptr<Tensor> b) {
@@ -76,7 +84,7 @@ std::shared_ptr<Tensor> matmul(std::shared_ptr<Tensor> a, std::shared_ptr<Tensor
 
     if (result->requires_grad) {
         auto op = std::make_shared<MatMulOp>(a, b);
-        result->creator = op;
+        result->set_creator(op);
 
         // Register tensor and op with global graph
         global_graph.add_tensor(result);

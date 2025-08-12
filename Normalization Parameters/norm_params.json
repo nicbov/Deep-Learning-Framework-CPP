@@ -1,1 +1,42 @@
-{"Open": {"min": 2.44, "max": 7.97}, "Close": {"min": 2.39, "max": 7.78}, "Volume": {"min": 19270100.0, "max": 375003100.0}, "Next_Close": {"min": 2.39, "max": 7.78}, "Next_Volume": {"min": 19270100.0, "max": 375003100.0}}
+{
+    "longitude": {
+        "min": -124.35,
+        "max": -114.31
+    },
+    "latitude": {
+        "min": 32.54,
+        "max": 41.95
+    },
+    "housing_median_age": {
+        "min": 1.0,
+        "max": 52.0
+    },
+    "total_rooms": {
+        "min": 2.0,
+        "max": 39320.0
+    },
+    "total_bedrooms": {
+        "min": 1.0,
+        "max": 6445.0
+    },
+    "population": {
+        "min": 3.0,
+        "max": 35682.0
+    },
+    "households": {
+        "min": 1.0,
+        "max": 6082.0
+    },
+    "median_income": {
+        "min": 0.4999,
+        "max": 15.0001
+    },
+    "median_house_value": {
+        "min": 14999.0,
+        "max": 500001.0
+    },
+    "ocean_proximity": {
+        "min": -1.0,
+        "max": 2.0
+    }
+}

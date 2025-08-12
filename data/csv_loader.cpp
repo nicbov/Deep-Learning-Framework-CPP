@@ -25,8 +25,10 @@ std::vector<std::vector<double>> load_csv(const std::string& filename) {
         std::string cell;
         std::vector<double> row;
         bool invalid_row = false;
+        int column_count = 0;
 
         while (std::getline(ss, cell, ',')) {
+            ++column_count;
             try {
                 double val = std::stod(cell);
                 if (std::isnan(val) || std::isinf(val)) {
@@ -43,10 +45,12 @@ std::vector<std::vector<double>> load_csv(const std::string& filename) {
         }
 
         if (!invalid_row) {
-            if (row.size() == 5) {
+            if (column_count == 10) {  // Exactly 10 columns expected
                 data.push_back(row);
             } else {
-                std::cerr << "Warning: Skipping line " << line_num << " due to unexpected number of columns: " << row.size() << std::endl;
+                std::cerr << "Warning: Skipping line " << line_num
+                          << " due to unexpected number of columns: "
+                          << column_count << std::endl;
             }
         }
     }
@@ -61,7 +65,22 @@ void split_features_targets(
     std::vector<std::vector<double>>& targets
 ) {
     for (const auto& row : data) {
-        features.push_back({ row[0], row[1], row[2] });
-        targets.push_back({ row[3], row[4] });
+        // Features: first 8 columns plus ocean_proximity (column 9)
+        features.push_back({
+            row[0], // longitude
+            row[1], // latitude
+            row[2], // housing_median_age
+            row[3], // total_rooms
+            row[4], // total_bedrooms
+            row[5], // population
+            row[6], // households
+            row[7], // median_income
+            row[9]  // ocean_proximity (numeric)
+        });
+
+        // Target: median_house_value (column 8)
+        targets.push_back({ row[8] });
     }
 }
+
+

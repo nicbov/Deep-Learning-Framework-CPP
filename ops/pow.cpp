@@ -23,10 +23,19 @@ void PowOp::backward(Tensor& grad_output) {
     if (input->grad.size() != input->data.size())
         input->grad.assign(input->data.size(), 0.0f);
 
-    for (size_t i = 0; i < input->data.size(); ++i) {
-        input->grad[i] += exponent * std::pow(input->data[i], exponent - 1) * grad_output.grad[i];
+    if (input->requires_grad) {
+        if (input->grad.empty()) input->grad.resize(input->data.size(), 0.0f);
+        for (size_t i = 0; i < input->data.size(); ++i) {
+            input->grad[i] += exponent * std::pow(input->data[i], exponent - 1) * grad_output.grad[i]; // Changed from = to += for gradient accumulation
+        }
     }
 
-    if (auto creator = input->creator.lock()) creator->backward(*input);
+    // CRITICAL FIX: Propagate gradients to input tensor's creator
+    // But avoid infinite loops by checking if the creator is different
+    auto input_creator = input->creator.lock();
+    if (input_creator && input_creator.get() != this) {
+        // Only propagate if the creator is different from this operation
+        input_creator->backward(*input);
+    }
 }
 

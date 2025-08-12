@@ -9,20 +9,16 @@
 extern Graph global_graph;
 
 std::shared_ptr<Tensor> mse_loss(const std::shared_ptr<Tensor>& prediction, const std::shared_ptr<Tensor>& target) {
+    // Create the computation graph properly
     auto diff = prediction - target;                      // SubOp
     auto squared = (diff) * (diff);                       // MulOp
-    auto loss = squared->mean();    // MeanOp
+    auto loss = squared->mean();                          // MeanOp
 
-    std::cout << "[mse_loss] returning loss tensor: " << loss.get() << "\n";
-    if (loss->creator.expired()) {
-        std::cout << "[mse_loss] WARNING: creator expired\n";
-    } else {
-        std::cout << "[mse_loss] creator set\n";
+    // The tensor operators should have already set up the creators and registered with global_graph
+    // But let's ensure the loss tensor is properly set up
+    if (prediction->requires_grad || target->requires_grad) {
+        loss->requires_grad = true;
     }
-
-    // Register ops and tensors in global graph
-    global_graph.add_tensor(diff);
-    global_graph.add_tensor(squared);
-    global_graph.add_tensor(loss);
+    
     return loss;
 }

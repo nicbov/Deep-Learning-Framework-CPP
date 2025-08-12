@@ -18,8 +18,6 @@ LinearOp::LinearOp(const std::shared_ptr<Tensor>& input_,
 }
 
 void LinearOp::backward(Tensor& grad_output) {
-    std::cout << "[LinearOp] backward called\n";
-
     int batch = input->shape[0];
     int in_dim = input->shape[1];
     int out_dim = weight->shape[1];
@@ -37,9 +35,7 @@ void LinearOp::backward(Tensor& grad_output) {
 
     if (input_mut->requires_grad) {
         if (input_mut->grad.size() != input_mut->data.size())
-            input_mut->grad.assign(input_mut->data.size(), 0.0f);
-        else
-            std::fill(input_mut->grad.begin(), input_mut->grad.end(), 0.0f);
+            input_mut->grad.resize(input_mut->data.size(), 0.0f);
 
         for (int b = 0; b < batch; ++b) {
             for (int i = 0; i < in_dim; ++i) {
@@ -47,22 +43,14 @@ void LinearOp::backward(Tensor& grad_output) {
                 for (int j = 0; j < out_dim; ++j) {
                     grad_val += grad_output.grad[b * out_dim + j] * weight_mut->data[i * out_dim + j];
                 }
-                input_mut->grad[b * in_dim + i] = grad_val;  // overwrite after zeroing
+                input_mut->grad[b * in_dim + i] += grad_val;
             }
         }
-
-        std::cout << "[LinearOp] input grad sample: ";
-        for (int i = 0; i < std::min(5, (int)input_mut->grad.size()); ++i) {
-            std::cout << input_mut->grad[i] << " ";
-        }
-        std::cout << std::endl;
     }
 
     if (weight_mut->requires_grad) {
         if (weight_mut->grad.size() != weight_mut->data.size())
-            weight_mut->grad.assign(weight_mut->data.size(), 0.0f);
-        else
-            std::fill(weight_mut->grad.begin(), weight_mut->grad.end(), 0.0f);
+            weight_mut->grad.resize(weight_mut->data.size(), 0.0f);
 
         for (int i = 0; i < in_dim; ++i) {
             for (int j = 0; j < out_dim; ++j) {
@@ -70,39 +58,29 @@ void LinearOp::backward(Tensor& grad_output) {
                 for (int b = 0; b < batch; ++b) {
                     grad_val += input->data[b * in_dim + i] * grad_output.grad[b * out_dim + j];
                 }
-                weight_mut->grad[i * out_dim + j] = grad_val;  // overwrite after zeroing
+                weight_mut->grad[i * out_dim + j] += grad_val;
             }
         }
-
-        std::cout << "[LinearOp] weight grad sample: ";
-        for (int i = 0; i < std::min(5, (int)weight_mut->grad.size()); ++i) {
-            std::cout << weight_mut->grad[i] << " ";
-        }
-        std::cout << std::endl;
     }
 
     if (bias_mut && bias_mut->requires_grad) {
         if (bias_mut->grad.size() != bias_mut->data.size())
-            bias_mut->grad.assign(bias_mut->data.size(), 0.0f);
-        else
-            std::fill(bias_mut->grad.begin(), bias_mut->grad.end(), 0.0f);
+            bias_mut->grad.resize(bias_mut->data.size(), 0.0f);
 
         for (int j = 0; j < out_dim; ++j) {
             float grad_val = 0.0f;
             for (int b = 0; b < batch; ++b) {
                 grad_val += grad_output.grad[b * out_dim + j];
             }
-            bias_mut->grad[j] = grad_val;  // overwrite after zeroing
+            bias_mut->grad[j] += grad_val;
         }
-
-        std::cout << "[LinearOp] bias grad sample: ";
-        for (int i = 0; i < std::min(5, (int)bias_mut->grad.size()); ++i) {
-            std::cout << bias_mut->grad[i] << " ";
-        }
-        std::cout << std::endl;
     }
 
-    if (auto creator = input->creator.lock()) {
-        creator->backward(*input);
+    // CRITICAL FIX: Propagate gradients to input tensor's creator
+    // But avoid infinite loops by checking if the creator is different
+    auto input_creator = input->creator.lock();
+    if (input_creator && input_creator.get() != this) {
+        // Only propagate if the creator is different from this operation
+        input_creator->backward(*input);
     }
 }
